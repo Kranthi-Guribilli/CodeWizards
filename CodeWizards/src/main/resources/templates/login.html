@@ -42,13 +42,13 @@
       <div class="col-md-6 login-center">
         <form th:action="@{/login}" method="post" class="signin-form">
           <div class="col-md-8 login-center input-grids">
-            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessge)}"
-                th:text="${errorMessge}" />
+            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
+                th:text="${errorMessage}" />
             <input type="text" name="username" id="username" placeholder="Username"
                    class="login-input" />
             <input type="password" name="password" id="password" placeholder="Password"
                    class="login-input" />
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
           </div>
           <div class="col-md-8 login-center text-start">
             <button class="btn btn-style btn-style-3 text-left">Log In</button>
@@ -61,9 +61,9 @@
 </section>
 <!-- //login block -->
 
-<!-- footer block -->
+<!-- footer.html block -->
 <div th:replace="~{footer :: footer}">...</div>
-<!-- //footer block -->
+<!-- //footer.html block -->
 
 <!-- Js scripts -->
 <!-- move top -->
@@ -93,11 +93,11 @@
 <!-- //move top -->
 
 <!-- common jquery plugin -->
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
 <!-- //common jquery plugin -->
 
 <!-- theme switch js (light and dark)-->
-<script src="assets/js/theme-change.js"></script>
+<script src="/assets/js/theme-change.js"></script>
 <!-- //theme switch js (light and dark)-->
 
 <!-- MENU-JS -->
@@ -140,7 +140,7 @@
 <!-- //disable body scroll which navbar is in active -->
 
 <!-- bootstrap -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
 <!-- //bootstrap -->
 <!-- //Js scripts -->
 </body>

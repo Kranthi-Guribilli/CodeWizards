@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
 
@@ -24,21 +25,21 @@
                         <a th:href="@{/home}" class="nav-link active" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/bootcamps}" class="nav-link">Bootcamps</a>
+                        <a th:href="@{/home}" class="nav-link">Bootcamps</a>
                     </li>
                     <li class="nav-item">
                         <a th:href="@{/contact}" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/blogs}" class="nav-link">CODE::BLOGS</a>
+                        <a th:href="@{/level1}" class="nav-link">CODE::BLOGS</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/login}" class="nav-link">Login</a>
+                        <a th:href="@{/home}" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/logout}" class="nav-link">LogOut</a>
+                        <a th:href="@{/home}" class="nav-link">LogOut</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="isAnonymous()">
                         <a th:href="@{/profile}" class="nav-link">Profile</a>
                     </li>
                 </ul>

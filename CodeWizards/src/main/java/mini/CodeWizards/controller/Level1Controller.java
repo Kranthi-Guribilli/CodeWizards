@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ContactController {
-    @RequestMapping(value={"/contact"})
-    public String displayContactPage(){
-        return "contact.html";}
+public class Level1Controller {
+    @RequestMapping(value={"/level1"})
+        public String displayLevel1Page(){
+            return "level1.html";}
 }
