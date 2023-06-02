@@ -9,4 +9,10 @@ public class HomeController {
     public String displayHomePage(){
         return "home.html";
     }
+
+    @RequestMapping(value="/privacy")
+    public String displayPrivacyPage(){return "privacy.html";}
+
+    @RequestMapping(value="/termsncond")
+    public String displayTermsPage(){return "T&C.html";}
 }
