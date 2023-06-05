@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class RegisterController {
+public class PublicController {
     @RequestMapping(value="/register")
     public String displayRegisterPage(){return "register.html";}
 }

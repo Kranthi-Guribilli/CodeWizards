@@ -14,9 +14,20 @@ public class ProjectSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeHttpRequests().anyRequest().permitAll()
-                .and().formLogin()
+        http.csrf().ignoringRequestMatchers("/saveMsg").and()
+                .authorizeHttpRequests()
+                .requestMatchers("/dashboard").authenticated()
+                .requestMatchers("/displayMessages").hasRole("ADMIN")
+                .requestMatchers("/closeMsg/**").hasRole("ADMIN")
+                .requestMatchers("","/","/home").permitAll()
+                .requestMatchers("/assets/**").permitAll()
+                .requestMatchers("/contact").permitAll()
+                .requestMatchers("/saveMsg").permitAll()
+                .requestMatchers("/login").permitAll()
+                .requestMatchers("/logout").permitAll()
+                .and().formLogin().loginPage("/login")
+                .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
+                .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic();
         return http.build();
     }
