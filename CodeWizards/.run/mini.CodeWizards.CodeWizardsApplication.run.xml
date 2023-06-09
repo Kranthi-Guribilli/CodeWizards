@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="mini.CodeWizards.CodeWizardsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="mini.CodeWizards.CodeWizardsApplication" />
+    <module name="mini" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="mini.CodeWizards.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

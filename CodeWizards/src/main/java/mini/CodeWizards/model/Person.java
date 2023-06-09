@@ -12,6 +12,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Data
+@Table(name="person")
 @Entity
 @FieldsValueMatch.List({
         @FieldsValueMatch(
@@ -28,6 +29,7 @@ import jakarta.validation.constraints.Size;
 public class Person extends BaseEntity{
 
     @Id
+    @Column(name="person_id")
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     private int personId;
@@ -36,6 +38,7 @@ public class Person extends BaseEntity{
     @Size(min=3, message="Name must be at least 3 characters long")
     private String name;
 
+    @Column(name="mobile_number")
     @NotBlank(message="Mobile number must not be blank")
     @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
     private String mobileNumber;

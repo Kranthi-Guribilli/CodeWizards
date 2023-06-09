@@ -49,8 +49,8 @@ public class ContactService {
         Optional<Contact> contact = contactRepository.findById(contactId);
         contact.ifPresent(contact1 -> {
             contact1.setStatus(CodeWizardsConstants.CLOSE);
-            contact1.setUpdatedBy(updatedBy);
             contact1.setUpdatedAt(LocalDateTime.now());
+            contact1.setUpdatedBy(updatedBy);
         });
         Contact updatedContact = contactRepository.save(contact.get());
         if(null != updatedContact && updatedContact.getUpdatedBy()!=null) {
