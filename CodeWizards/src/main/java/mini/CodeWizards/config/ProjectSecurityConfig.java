@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@ComponentScan("mini.CodeWizards.security")
+//@ComponentScan("mini.CodeWizards.security")
 public class ProjectSecurityConfig {
 
     @Bean
@@ -26,15 +26,14 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/level1").permitAll()
                 .requestMatchers("/termsncond").permitAll()
                 .requestMatchers("/privacy").permitAll()
-                .requestMatchers("/logout").permitAll()
+                .requestMatchers("/logout").authenticated()
                 .requestMatchers("/public/**").permitAll()
                 .requestMatchers("/dashboard").authenticated()
                 .requestMatchers("/displayMessages").hasRole("ADMIN")
                 .requestMatchers("/closeMsg/**").hasRole("ADMIN")
                 .requestMatchers("/displayProfile").authenticated()
                 .requestMatchers("/updateProfile").authenticated()
-                .and().formLogin().loginPage("/login")
-                .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic()
                 .disable();
@@ -48,19 +47,3 @@ public class ProjectSecurityConfig {
     }
 
 }
-
-   /* @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("12345")
-                .roles("USER")
-                .build();
-        UserDetails admin = User.withDefaultPasswordEncoder()
-                .username("admin")
-                .password("54321")
-                .roles("USER", "ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user, admin);
-    }*/
