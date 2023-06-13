@@ -62,7 +62,7 @@ public class ContactController {
     public ModelAndView displayMessages(Model model){
         List<Contact> contactMsgs=contactService.findMsgsWithOpenStatus();
         ModelAndView modelAndView=new ModelAndView("messages.html");
-        modelAndView.addObject("contactMSgs",contactMsgs);
+        modelAndView.addObject("contactMsgs",contactMsgs);
         return modelAndView;
     }
 

@@ -1,6 +1,6 @@
 package mini.CodeWizards.constants;
 
-public class CodeWizardsConstants {
+public interface CodeWizardsConstants {
     public static final String OPEN="Open";
     public static final String CLOSE="Close";
     public static final String STUDENT_ROLE = "STUDENT";

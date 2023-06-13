@@ -9,7 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-//@ComponentScan("mini.CodeWizards.security")
 public class ProjectSecurityConfig {
 
     @Bean
@@ -33,11 +32,9 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/closeMsg/**").hasRole("ADMIN")
                 .requestMatchers("/displayProfile").authenticated()
                 .requestMatchers("/updateProfile").authenticated()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard",true).failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
-                .and().httpBasic()
-                .disable();
-
+                .and().httpBasic();
         return http.build();
     }
 

@@ -21,11 +21,25 @@
 <div th:replace="~{header :: header}">...</div>
 <!-- //header -->
 
-</br></br></br></br></br></br>
+<!-- inner banner -->
+<section class="inner-banner py-5" style="background: url(/assets/images/funcoding.jpeg) no-repeat center;">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Dashboard</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Dashboard</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
 <!-- start-->
 <div id="courses" class="sc-kSGOQU krsrDL">
-    <div class="sc-dPWrhe dwHhrR">Courses</div>
-
+    <div class="sc-dPWrhe dwHhrR">Funcoding</div>
+    <p>A fun filled coding platform</br></p>
+    <h2>Learning Phase: includes 2 levels</h2>
     <div class="sc-jsTgWu goMsHa">
         <div class="sc-caPbAK irOJEl">
             <div class="sc-hjjlnc hepOyi">
@@ -33,7 +47,7 @@
                     <div class="sc-gUJyNl jUGZSL">Level</div>
                     <img src="assets/images/level1.png" alt="level-1" class="sc-iqPaeV ldXJRR"></div>
             </div>
-            <div class="sc-gkSfol exlowr">Level 1 is for complete beginners, and is intended to kickstart your CP journey. After completing Level 1, you will be proficient in the con<span class="sc-fmPOXC hLCJMN">...Know More</span>
+            <div class="sc-gkSfol exlowr">It was intended to kickstart the Coding journey of students. Acquiring basic knowledge on a programming language being it's main motto it will assure to enhance the problem solving skills of the students by 50 suggested problems by the tutors.
             </div>
         </div>
 
@@ -44,18 +58,12 @@
                     <div class="sc-gUJyNl jUGZSL">Level</div>
                     <img src="assets/images/l2.png" alt="level-2" class="sc-iqPaeV ldXJRR"></div>
             </div>
-            <div class="sc-gkSfol exlowr">Level 2 is for complete beginners, and is intended to kickstart your CP journey. After completing Level 1, you will be proficient in the con
-            </div>
-        </div>
-
-
-        <div class="sc-caPbAK irOJEl">
-            <div class="sc-hjjlnc hepOyi">
-                <div class="sc-iFoMEM Issrn">
-                    <div class="sc-gUJyNl jUGZSL">Level</div>
-                    <img src="assets/images/l3.png" alt="level-3" width="132" height="84" class="sc-iqPaeV ldXJRR"></div>
-            </div>
-            <div class="sc-gkSfol exlowr">Level 3 is for people who can usually solve Div2As in a Codeforces Round, and have a good grip over C++. We will brush up a bit of STL and then go through topics such as Recursion, Backtracking, Prefix Sums, Difference Arrays, Bit Manipulation, Advanced Binary Search, Greedy Algorithms, Number Theory etc.
+            <div class="sc-gkSfol exlowr">After completing Level 1, students will be proficient with the syntax of a language.Level 2 Focuses more on logic. We will explore multiple
+                possible solutions and analyse their
+                complexities by that students can approach to any problems in an optimized way.
+                (includes 100 suggested programs).
+                Later students will build simple stuff like console applications,
+                stimulating games and etc.
             </div>
         </div>
     </div>
@@ -64,31 +72,24 @@
 <!-- //start-->
 
 <!-- level-1-->
-<!--<div class="gJjLEr">
-    <div class="k5">
-        <div class="gUApXW">Level 1 Course</div>
-        <div class="cFWxdM">This level is for complete beginners and is intended to get your Competitive Programming journey kick-started from absolute scratch. After completing Level 1, you will have a deep understanding of C++ programming language, Time and Space Complexity, Recursion, Binary Search, Bitwise Operators, Brute Force techniques, Mathematical Concepts, and beginner-level problem-solving techniques. </div>
-    </div>
-    <div class="hKkWPI"><img src="/assets/images/level1.png" alt="public-course-hero" class="fEJxkY">
-    </div>
-</div>-->
 <div class="container">
     <div class="column">
         <div class="text">
-            <h2>Level1 Course<img src="assets/images/cp.png" alt="feather" width="30" class="image"></h2>
-            <p class="abt">This level is for complete beginners and is intended to get your Competitive Programming journey kick-started from absolute scratch. After completing Level 1, you will have a deep understanding of C++ programming language, Time and Space Complexity, Recursion, Binary Search, Bitwise Operators, Brute Force techniques, Mathematical Concepts, and beginner-level problem-solving techniques.
-        <a href="/about" class="cws-button bt-color-3 border-radius alt icon-right float-right">Read More <i class="fas fa-chevron-right"></i></a>
+            <h2>Level-1<img src="assets/images/cp.png" alt="feather" width="30" class="image"></h2>
+            <div class="sc-dPWrhe dwHhrR">Syllabus</div>
+            <p style="background-image: url(assets/images/about-shape.png);
+    background-repeat: repeat;
+    background-position: center;"> <ol> <li>Getting Started with python</li>
+                <li>Flow of Control</li>
+            <li>Introduction to Non-Primitive Data types.</li>
+           <li></li> Functions</li></ol>
             </p>
         </div>
     </div>
     <div class="column">
-        <img src="/assets/images/level1.png" size="300">
+        <img src="/assets/images/level1.png" width="100%">
     </div>
 </div>
-
-<!-- //level1-->
-
-
 <!--Features-->
 <div class="BcsTx">
     <div class="DiTML">
@@ -96,29 +97,50 @@
             <div class="k1">Pre-Requisites</div>
             <ol class="k2">
                 <li class="jtHmYL">
-                Basic math concepts such as arithmetic operators, primes, divisors, multiples, linear equations.</li>
-                <li class="jtHmYL">Should be able to spend 2 hours daily in the course.</li>
-                <li class="tHmYL">A will to learn and work hard.</li>
+                    Basic math concepts such as arithmetic operators, primes, divisors, multiples</li>
+                <li class="jtHmYL">Should be able to spend 2 hours for the session and practice.</li>
+                <li class="tHmYL">A will to learn and a chill for mind:)</li>
             </ol>
         </div>
-</div>
-
-<div class="k3">
-    <div class="ehfASM">
-        <div class="bwrPbB">Features</div>
-        <ol class="eFNqwY">
-            <li class="jtHmYL">Weekly Live Code Classes</li>
-            <li class="jtHmYL">Daily Curated Practice Problems</li>
-            <li class="jtHmYL">24*7 on chat Doubt Support</li>
-            <li class="jtHmYL">Daily Doubt Resolution Sessions</li>
-            <li class="jtHmYL">Progress Tracking on website</li>
-            <li class="jtHmYL">Course Completion Certificate</li>
-            <li class="jtHmYL">Networking with high-rated coders</li>
-        </ol>
     </div>
-  </div>
+
+    <div class="k3">
+        <div class="ehfASM">
+            <div class="bwrPbB">Features</div>
+            <ol class="eFNqwY">
+                <li class="jtHmYL">Daily Sessions</li>
+                <li class="jtHmYL">Daily Curated Practice Problems</li>
+                <li class="jtHmYL">24*7 on chat Doubt Support</li>
+                <li class="jtHmYL">Daily Doubt Resolution Sessions</li>
+                <li class="jtHmYL">Networking with like-minded peers</li>
+            </ol>
+        </div>
+    </div>
 </div>
 <!-- //Features-->
+
+<!-- //level-1 -->
+
+<!-- //level2 -->
+<div class="container">
+    <div class="column">
+        <div class="text">
+            <h2>Level-2<img src="assets/images/cp.png" alt="feather" width="30" class="image"></h2>
+            <div class="sc-dPWrhe dwHhrR">Syllabus</div>
+            <p style="background-image: url(assets/images/about-shape.png);
+    background-repeat: repeat;
+    background-position: center;"> <ol> <li>Getting started with Algorithms and flowcharts.</li>
+            <li>Introduction to problem solving</li>
+            <li>Time and space complexity analysis.</li>
+            <li>Building simple stuff</li></ol>
+            </p>
+        </div>
+    </div>
+    <div class="column">
+        <img src="/assets/images/l2.png" width="100%">
+    </div>
+</div>
+<!-- //level2-->
 
 <!-- Js scripts -->
 <!-- move top -->

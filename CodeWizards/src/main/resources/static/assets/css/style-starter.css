@@ -18164,7 +18164,7 @@ li {
   position: relative;
   transform: rotate(-135deg) scale(var(--ggs, 1));
   width: 20px;
-  height: 20px;
+  height: 24px;
   border: 2px solid;
   border-bottom: 2px solid transparent;
 }
@@ -20885,7 +20885,7 @@ p.copy-footer-29 a:hover {
 
 /* inner banner */
 .inner-banner {
-  background: url(../images/banner3.jpg) no-repeat center;
+  /*background: url(/assets/images/banner.jpg) no-repeat center;*/
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -21157,7 +21157,7 @@ h4.inner-text-title {
 
 /* login section */
 .login-block input,
-.login-block textarea {
+.login-block textarea{
   width: 100%;
   color: var(--heading-color);
   background: var(--bg-grey);
@@ -21169,7 +21169,7 @@ h4.inner-text-title {
   border-radius: var(--border-radius);
 }
 
-.log-left.text-center i {
+.login-left.text-center i {
   color: var(--secondary-color);
   font-size: 26px;
 }
@@ -21187,7 +21187,7 @@ h4.inner-text-title {
 
 .login-left {
   box-shadow: var(--box-shadow);
-  padding: 40px;
+  padding: 400px;
 }
 
 .login-center {
@@ -21394,15 +21394,15 @@ h4.inner-text-title {
 }
 
 .overview-item--c3 {
-    background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background-image: -moz-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
+    background-image: -webkit-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
+    background-image: -ms-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
 }
 
 .overview-item--c4 {
-    background-image: -moz-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-    background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-    background-image: -ms-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
+    background-image: -moz-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
+    background-image: -webkit-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
+    background-image: -ms-linear-gradient(90deg, #0096FF 0%, #0096FF 100%);
 }
 
 .overview-box .icon {
@@ -21555,7 +21555,6 @@ label {
     background-image: url(assets/images/about-shape.png);
     background-repeat: repeat;
     background-position: center center;
-    color: red;
 }
 h2.toxic {
     font-size: 50px;
@@ -21574,21 +21573,20 @@ h2.toxic {
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.DiTML {
+/*.DiTML {
     width: 100%;
     flex-direction:column;
     place-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-}
+}*/
 .DiTML {
     transform: rotate(-5.72deg);
     display: flex;
 }
 .gbBVyF {
-    width: 100%;
     max-width: 450px;
-    padding: 20px;
+    padding: 40px;
     background-color: rgb(217, 217, 217);
     box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 10px;
     border-radius: 31px;
@@ -21624,17 +21622,16 @@ li {
     transform: rotate(5.56deg);
     display: flex;
 }
-.k3{
+/*.k3{
     width: 100%;
     flex-direction:column;
     place-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-}
+}*/
 .ehfASM {
-    width: 100%;
     max-width: 450px;
-    padding: 20px;
+    padding: 40px;
     background-color: rgb(21, 119, 255);
     box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 10px;
     border-radius: 31px;
@@ -21741,7 +21738,7 @@ display:table;
 .dwHhrR {
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 30px;
     color: rgb(248, 177, 0);
     text-transform: uppercase;
 }
@@ -21900,6 +21897,14 @@ ul {
     color: rgb(0, 0, 0);
     padding: 114px 70px 85px;
 }
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
 .Ppolicy{
 display: flex;
 flex-direction: column;
@@ -21947,7 +21952,7 @@ text-align:center;
     text-align: left;
     width: 150px;
 }
-p {
+p{
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -22046,3 +22051,131 @@ button {
 }
 
 /* //Contact */
+
+/* testimonals */
+.jwqqOx {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: -30px;
+}
+.dwHhrR {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(248, 177, 0);
+    text-transform: uppercase;
+}
+.jjXTtd {
+    margin-top: 20px;
+    margin-bottom: -40px;
+}
+.fTGrSb {
+    position: relative;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.dlwbBo {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: rgb(0, 0, 0);
+}
+.eAhbXV {
+    font-weight: 800;
+    font-size: 50px;
+}
+.hGAMrn {
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 50px;
+}
+.cnnZsC {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 206.5%;
+    color: rgb(0, 0, 0);
+    padding: 0px 200px;
+    margin-bottom: -5px;
+}
+.fqaQjx {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+.gCODwu {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.dlTUUj {
+    width: 119px;
+    height: 119px;
+    border-radius: 100%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.daEqlF {
+    width: 119px;
+    height: 119px;
+    border-radius: 100%;
+    opacity: 1;
+    cursor: pointer;
+}
+.eTtDqg {
+    width: 119px;
+    height: 119px;
+    border-radius: 100%;
+    opacity: 0.75;
+    cursor: pointer;
+}
+.kYkvWN {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 163%;
+    color: rgba(0, 0, 0, 0.87);
+    margin-top: 20px;
+}
+.hDbEAO {
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    color: rgb(0, 104, 249);
+}
+element.style {
+    cursor: pointer;
+}
+svg[Attributes Style] {
+    width: 30;
+    height: 30;
+    fill: currentcolor;
+}
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+path[Attributes Style] {
+    d: path("M 7.828 11 H 20 v 2 H 7.828 l 5.364 5.364 l -1.414 1.414 L 4 12 l 7.778 -7.778 l 1.414 1.414 Z");
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+style attribute {
+    cursor: pointer;
+}
+path[Attributes Style] {
+    d: path("M 16.172 11 l -5.364 -5.364 l 1.414 -1.414 L 20 12 l -7.778 7.778 l -1.414 -1.414 L 16.172 13 H 4 v -2 Z");
+}
+
+/* //testimonals */

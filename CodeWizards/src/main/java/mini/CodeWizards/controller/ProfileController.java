@@ -62,8 +62,8 @@ public class ProfileController {
         person.getAddress().setCity(profile.getCity());
         person.getAddress().setState(profile.getState());
         person.getAddress().setZipCode(profile.getZipCode());
-        Person savedPerson = personRepository.save(person);
-        session.setAttribute("loggedInPerson", savedPerson);
+        personRepository.save(person);
+        session.setAttribute("loggedInPerson", person);
         return "redirect:/displayProfile";
     }
 }

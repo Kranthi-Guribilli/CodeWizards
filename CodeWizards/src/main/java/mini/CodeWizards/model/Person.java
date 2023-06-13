@@ -45,6 +45,8 @@ public class Person extends BaseEntity{
 
     @NotBlank(message="Email must not be blank")
     @Email(message = "Please provide a valid email address" )
+    @Pattern(regexp = "s\\d{6}@rguktsklm\\.ac\\.in", message = "Email should be in the format sXXXXXX@rguktsklm.ac.in")
+
     private String email;
 
     @NotBlank(message="Confirm Email must not be blank")
