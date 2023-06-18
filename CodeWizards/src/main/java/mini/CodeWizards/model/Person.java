@@ -1,8 +1,9 @@
 package mini.CodeWizards.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import mini.CodeWizards.annotation.FieldsValueMatch;
 import mini.CodeWizards.annotation.PasswordValidator;
-import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.*;
@@ -11,8 +12,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-@Data
-@Table(name="person")
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
 @Entity
 @FieldsValueMatch.List({
         @FieldsValueMatch(
@@ -29,7 +33,6 @@ import jakarta.validation.constraints.Size;
 public class Person extends BaseEntity{
 
     @Id
-    @Column(name="person_id")
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     private int personId;
@@ -71,4 +74,16 @@ public class Person extends BaseEntity{
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, targetEntity = Address.class)
     @JoinColumn(name = "address_id", referencedColumnName = "addressId",nullable = true)
     private Address address;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "class_id", referencedColumnName = "classId", nullable = true)
+    private WizardsClass wizardsClass;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "person_courses",
+            joinColumns = {
+                    @JoinColumn(name = "person_id", referencedColumnName = "personId")},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "course_id", referencedColumnName = "courseId")})
+    private Set<Courses> courses = new HashSet<>();
 }

@@ -21,6 +21,9 @@ public class DashboardController {
         Person person=personRepository.readByEmail(authentication.getName());
         model.addAttribute("username", person.getName());
         model.addAttribute("roles",authentication.getAuthorities().toString());
+        if(null != person.getWizardsClass() && null != person.getWizardsClass().getName()){
+            model.addAttribute("enrolledClass", person.getWizardsClass().getName());
+        }
         session.setAttribute("loggedInPerson",person);
         return "dashboard.html";
     }
