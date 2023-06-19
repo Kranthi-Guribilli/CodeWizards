@@ -12,8 +12,8 @@ public class TestCase {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "problem_id")
-    private Problem problem;
+    @JoinColumn(name = "challenge_id")
+    private Challenges challenge;
 
     private String input;
     private String expectedOutput;

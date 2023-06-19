@@ -88,3 +88,40 @@ CREATE TABLE IF NOT EXISTS `person_courses` (
   FOREIGN KEY (course_id) REFERENCES courses(course_id),
    PRIMARY KEY (`person_id`,`course_id`)
 );
+
+CREATE TABLE IF NOT EXISTS `challenges` (
+  `challenge_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
+  `created_by` varchar(50) NOT NULL,
+  `updated_at` TIMESTAMP DEFAULT NULL,
+  `updated_by` varchar(50) DEFAULT NULL,
+   PRIMARY KEY (`challenge_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `person_submissions` (
+  `person_id` int NOT NULL,
+  `submission_id` int NOT NULL,
+  FOREIGN KEY (person_id) REFERENCES person(person_id),
+  FOREIGN KEY (submission_id) REFERENCES submissions(submission_id),
+   PRIMARY KEY (`person_id`,`submission_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `submissions` (
+  `submission_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
+  `created_by` varchar(50) NOT NULL,
+  `updated_at` TIMESTAMP DEFAULT NULL,
+  `updated_by` varchar(50) DEFAULT NULL,
+   PRIMARY KEY (`submission_id`)
+);
+
+ALTER TABLE `challenges`
+ADD COLUMN `desc` varchar(100) NULL AFTER `name`;
+
+ALTER TABLE `submissions`
+ADD COLUMN `code` varchar(200) NULL AFTER `name`;
+
+ALTER TABLE `submissions`
+ADD COLUMN `result` varchar(200) NULL AFTER `code`;

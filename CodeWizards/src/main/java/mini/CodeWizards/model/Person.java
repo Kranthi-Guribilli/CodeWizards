@@ -86,4 +86,12 @@ public class Person extends BaseEntity{
             inverseJoinColumns = {
                     @JoinColumn(name = "course_id", referencedColumnName = "courseId")})
     private Set<Courses> courses = new HashSet<>();
+
+    /*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "person_submissions",
+            joinColumns = {
+                    @JoinColumn(name = "person_id", referencedColumnName = "personId")},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "submission_id", referencedColumnName = "submissionId")})
+    private Set<Submission> submission=new HashSet<>();*/
 }

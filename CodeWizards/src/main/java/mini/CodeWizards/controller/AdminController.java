@@ -2,9 +2,11 @@ package mini.CodeWizards.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
+import mini.CodeWizards.model.Challenges;
 import mini.CodeWizards.model.Courses;
 import mini.CodeWizards.model.Person;
 import mini.CodeWizards.model.WizardsClass;
+import mini.CodeWizards.repository.ChallengesRepository;
 import mini.CodeWizards.repository.CoursesRepository;
 import mini.CodeWizards.repository.PersonRepository;
 import mini.CodeWizards.repository.WizardsClassRepository;
@@ -31,6 +33,8 @@ public class AdminController {
 
     @Autowired
     CoursesRepository coursesRepository;
+    @Autowired
+    ChallengesRepository challengesRepository;
 
     @RequestMapping("/displayClasses")
     public ModelAndView displayClasses(Model model) {
@@ -172,4 +176,19 @@ public class AdminController {
         return modelAndView;
     }
 
+    @GetMapping("/displayChallenges")
+    public ModelAndView displayChallenges(Model model) {
+        List<Challenges> challenges = challengesRepository.findAll();
+        ModelAndView modelAndView = new ModelAndView("challenges.html");
+        modelAndView.addObject("challenges",challenges);
+        modelAndView.addObject("challenge", new Challenges());
+        return modelAndView;
+    }
+    @PostMapping("/addNewChallenge")
+    public ModelAndView addNewChallenge(Model model, @ModelAttribute("challenge") Challenges challenge) {
+        ModelAndView modelAndView = new ModelAndView();
+        challengesRepository.save(challenge);
+        modelAndView.setViewName("redirect:/admin/displayChallenges");
+        return modelAndView;
+    }
 }

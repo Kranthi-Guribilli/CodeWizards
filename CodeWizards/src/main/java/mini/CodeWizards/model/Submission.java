@@ -3,20 +3,25 @@ package mini.CodeWizards.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.net.ssl.SSLSession;
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @Entity
-public class Submission {
+@Table(name="submissions")
+public class Submission extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int submissionId;
 
     @ManyToOne
-    @JoinColumn(name = "problem_id")
-    private Problem problem;
+    @JoinColumn(name = "challenge_id")
+    private Challenges challenge;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     private String code;
