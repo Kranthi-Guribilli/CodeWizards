@@ -2,10 +2,7 @@ package mini.CodeWizards.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import mini.CodeWizards.model.Challenges;
-import mini.CodeWizards.model.Courses;
-import mini.CodeWizards.model.Person;
-import mini.CodeWizards.model.WizardsClass;
+import mini.CodeWizards.model.*;
 import mini.CodeWizards.repository.ChallengesRepository;
 import mini.CodeWizards.repository.CoursesRepository;
 import mini.CodeWizards.repository.PersonRepository;

@@ -59,15 +59,18 @@
             <div class="modal-body">
               <div class="input-grids">
                 <label class="control-label" for="challengeName">Challenge Name</label>
-                <input type="text" class="form-control" name="challengeName" id="challengeName"
-                       th:field="*{name}" required placeholder="Enter Challenge Name">
+                <input type="text" class="form-control" name="challengeName" id="challengeName" th:field="*{name}" required placeholder="Enter Challenge Name">
                 <label class="control-label" for="description">Description</label>
-                <input type="text" class="form-control" name="description" id="description"
-                       th:field="*{desc}" required placeholder="Enter description for the problem">
+                <input type="text" class="form-control" name="description" id="description" th:field="*{description}" required placeholder="Enter description for the problem">
+                <label class="control-label" for="inputs">Inputs</label>
+                <input type="text" class="form-control" name="inputs" id="inputs" th:field="*{inputs}" required placeholder="Enter inputs (comma-separated)">
+                <label class="control-label" for="expectedOutputs">Expected Outputs</label>
+                <input type="text" class="form-control" name="expectedOutputs" id="expectedOutputs" th:field="*{expectedOutputs}" required placeholder="Enter expected outputs (comma-separated)">
               </div>
-            </div>
             <div class="modal-footer border-top-0 d-flex justify-content-center">
               <button type="submit" class="btn btn-style btn-style-3">Submit</button>
+            </div>
+              </div>
             </div>
           </form>
         </div>
