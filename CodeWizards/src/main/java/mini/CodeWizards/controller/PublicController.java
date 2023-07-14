@@ -111,11 +111,11 @@ public class PublicController {
     }
 
     @RequestMapping(value="/viewSubmissions",method= {RequestMethod.GET})
-    public ModelAndView viewSubmissions(Model model, @RequestParam int challengeId, HttpSession session,
+    public ModelAndView viewSubmissions(Model model, HttpSession session,
                                         @RequestParam(required=false) String error){
-        Optional<Submission> submissions = submissionRepository.findById(challengeId);
+        List<Submission> submission = submissionRepository.findAll();
         ModelAndView modelAndView = new ModelAndView("submissions.html");
-        modelAndView.addObject("submissions",submissions);
+        modelAndView.addObject("submission",submission);
         return modelAndView;
     }
 

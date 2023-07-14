@@ -134,6 +134,10 @@ public class AdminController {
         person.get().getCourses().remove(courses);
         courses.getPersons().remove(person);
         personRepository.save(person.get());
+        // Decrement the lmt field
+        courses.setLmt(courses.getLmt() + 1);
+        // Save the updated course entity
+        coursesRepository.save(courses);
         session.setAttribute("courses",courses);
         ModelAndView modelAndView = new
                 ModelAndView("redirect:/public/viewStudents?id="+courses.getCourseId());

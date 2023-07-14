@@ -20,7 +20,7 @@
 <!-- //header -->
 
 <!-- inner banner -->
-<section class="inner-banner py-5" style="background: url(/assets/images/challenges.jpg) no-repeat center;">
+<section class="inner-banner py-5" style="background: url(/assets/images/login.jpg) no-repeat center;">
   <div class="w3l-breadcrumb py-lg-5">
     <div class="container pt-4 pb-sm-4">
       <h4 class="inner-text-title pt-5">Challenges</h4>
@@ -126,7 +126,7 @@
               </div>
             </div>
             <!-- ... existing code ... -->
-        <td><a th:href="@{/public/viewSubmissions(challenge_id=${challenge.challengeId})}" class="btn btn-warning">SUBMISSIONS</a></td>
+        <td><a th:href="@{/public/viewSubmissions}" class="btn btn-warning">SUBMISSIONS</a></td>
         <td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-warning" onclick="confirmDelete(${challenge.challengeId})">DELETE</a></td>
       </tr>
       </tbody>

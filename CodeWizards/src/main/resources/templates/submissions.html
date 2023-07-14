@@ -20,7 +20,7 @@
 <!-- //header -->
 
 <!-- inner banner -->
-<section class="inner-banner py-5" style="background: url(/assets/images/submissions.jpg) no-repeat center;">
+<section class="inner-banner py-5" style="background: url(/assets/images/login.jpg) no-repeat center;">
   <div class="w3l-breadcrumb py-lg-5">
     <div class="container pt-4 pb-sm-4">
       <h4 class="inner-text-title pt-5">Submissions</h4>
@@ -39,7 +39,7 @@
 
     <div class="row mb-4">
       <div class="overview-wrap">
-        <h3 class="heading-21921" th:text="${challenge.name} + ' Submissions'"></h3>
+        <h3 class="heading-21921">"Submissions"</h3>
       </div>
     </div>
     <table class="table table-striped table-hover">
@@ -51,8 +51,8 @@
       </thead>
       <tbody>
       <tr th:each="submissions: ${submission}">
-        <td th:text="${submission.submissionId}"></td>
-        <td th:text="${submission.result}"></td>
+        <td th:text="${submissions.submissionId}"></td>
+        <td th:text="${submissions.result}"></td>
       </tr>
       </tbody>
     </table>
