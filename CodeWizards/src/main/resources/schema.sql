@@ -125,3 +125,15 @@ ADD COLUMN `code` varchar(200) NULL AFTER `name`;
 
 ALTER TABLE `submissions`
 ADD COLUMN `result` varchar(200) NULL AFTER `code`;
+
+CREATE TABLE challenge_inputs (
+  challenge_id INT,
+  input_value VARCHAR(255),
+  FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
+);
+
+CREATE TABLE challenge_expected_outputs (
+  challenge_id INT,
+  expected_output_value VARCHAR(255),
+  FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
+);

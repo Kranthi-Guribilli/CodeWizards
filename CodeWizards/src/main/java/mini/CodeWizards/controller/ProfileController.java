@@ -1,21 +1,29 @@
 package mini.CodeWizards.controller;
 
-import mini.CodeWizards.model.Address;
-import mini.CodeWizards.model.Person;
-import mini.CodeWizards.model.Profile;
+import mini.CodeWizards.model.*;
+import mini.CodeWizards.repository.ChallengesRepository;
 import mini.CodeWizards.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
+import mini.CodeWizards.repository.SubmissionRepository;
+import mini.CodeWizards.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -25,7 +33,7 @@ public class ProfileController {
     PersonRepository personRepository;
 
     @RequestMapping("/displayProfile")
-    public ModelAndView displayMessages(Model model, HttpSession session) {
+    public ModelAndView displayProfile(Model model, HttpSession session) {
         Person person = (Person) session.getAttribute("loggedInPerson");
         Profile profile = new Profile();
         profile.setName(person.getName());

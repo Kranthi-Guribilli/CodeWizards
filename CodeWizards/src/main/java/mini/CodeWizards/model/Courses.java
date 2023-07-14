@@ -18,9 +18,9 @@ public class Courses extends BaseEntity{
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     private int courseId;
-
     private String name;
-
+    private int lmt;
     @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     private Set<Person> persons = new HashSet<>();
+
 }

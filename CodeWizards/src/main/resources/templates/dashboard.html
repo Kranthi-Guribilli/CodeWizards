@@ -20,7 +20,7 @@
 <!-- //header -->
 
 <!-- inner banner -->
-<section class="inner-banner py-5">
+<section class="inner-banner py-5" style="background: url(/assets/images/dashboard.jpg) no-repeat center;">
     <div class="w3l-breadcrumb py-lg-5">
         <div class="container pt-4 pb-sm-4">
             <h4 class="inner-text-title pt-5">Dashboard</h4>
@@ -67,6 +67,38 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_STUDENT')">
+                    <a th:href="@{/enrolledCourses}">
+                        <div class="overview-item overview-item--c4">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h4>Enrolled bootcamps</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <a th:href="@{/public/displayChallenges}">
+                        <div class="overview-item overview-item--c4">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Challenges</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{/displayMessages}">
                         <div class="overview-item overview-item--c3">
@@ -83,8 +115,8 @@
                         </div>
                     </a>
                 </div>
-<div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
-    <a th:href="@{/admin/displayClasses}">
+<div class="col-sm-6 col-lg-3">
+    <a th:href="@{/public/displayClasses}">
         <div class="overview-item overview-item--c1">
             <div class="overview__inner">
                 <div class="overview-box clearfix">
@@ -99,24 +131,8 @@
         </div>
     </a>
 </div>
-<div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
-    <a th:href="@{/admin/displayCourses}">
-        <div class="overview-item overview-item--c2">
-            <div class="overview__inner">
-                <div class="overview-box clearfix">
-                    <div class="icon">
-                        <i class="fas fa-envelope-open-text"></i>
-                    </div>
-                    <div class="text">
-                        <h2>Courses</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-<div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_STUDENT')">
-    <a th:href="@{/student/displayCourses}">
+<div class="col-sm-6 col-lg-3">
+    <a th:href="@{/public/displayCourses}">
         <div class="overview-item overview-item--c3">
             <div class="overview__inner">
                 <div class="overview-box clearfix">
@@ -124,7 +140,7 @@
                         <i class="fas fa-envelope-open-text"></i>
                     </div>
                     <div class="text">
-                        <h2>Courses</h2>
+                        <h2>Bootcamps</h2>
                     </div>
                 </div>
             </div>

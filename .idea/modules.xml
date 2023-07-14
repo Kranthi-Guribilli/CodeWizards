@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/RGUForces.iml" filepath="$PROJECT_DIR$/.idea/RGUForces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeWizards/mini.iml" filepath="$PROJECT_DIR$/CodeWizards/mini.iml" />
+    </modules>
+  </component>
+</project>

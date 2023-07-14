@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/css/style-starter.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <title>Challenge</title>
+</head>
+<body>
+
+<div class="container" th:object="${challenge}">
+  <h1>Challenge Details</h1>
+  <hr>
+
+  <h3>Challenge ID: <span th:text="${challenge.challengeId}"></span></h3>
+  <h3>Challenge Name: <span th:text="${challenge.name}"></span></h3>
+  <p>Description: <span th:text="${challenge.description}"></span></p>
+  <hr>
+  <h4>Inputs:</h4>
+  <ul>
+    <li th:each="input : ${challenge.inputs}" th:text="${input}"></li>
+  </ul>
+
+  <h4>Expected Outputs:</h4>
+  <ul>
+    <li th:each="output : ${challenge.expectedOutputs}" th:text="${output}"></li>
+  </ul>
+
+  <hr>
+    <h3>Code Editor</h3>
+    <form id="submitForm" th:action="@{/public/submit(challenge_id=${challenge.challengeId},code=${submission.code})}" method="post" th:object="${submission}">
+      <div id="codeEditor" style="height: 300px;"></div>
+      <input type="hidden" name="code" th:field="*{code}">
+      <button class="btn btn-primary mt-3" type="submit">Submit</button>
+    </form>
+  <!-- Include JavaScript libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script>
+  // Initialize Ace editor
+  var editor = ace.edit("codeEditor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/python");
+
+  //editor.setValue("");
+
+  // Update the form's action attribute with the code when the form is submitted
+  var form = document.getElementById("submitForm");
+  form.addEventListener("submit", function() {
+    var codeInput = document.querySelector('input[name="code"]');
+    codeInput.value = editor.getValue();
+    var challengeIdInput = document.querySelector('input[name="challengeId"]');
+    form.action = `/admin/submit?challenge_id=${challengeIdInput.value}&code=${codeInput.value}`;
+  });
+</script>
+
+      <div class="col-md-2 login-center text-start">
+    <a th:href="@{/public/displayChallenges}">
+      <button class="btn btn-style btn-style-3 text-left">BACK</button>
+    </a>
+  </div>
+</div>
+
+<!-- Custom JavaScript code -->
+
+
+</body>
+</html>

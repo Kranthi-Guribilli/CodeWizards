@@ -2,6 +2,8 @@ package mini.CodeWizards.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
@@ -9,7 +11,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="challenges")
 public class Challenges extends BaseEntity{
@@ -17,10 +20,9 @@ public class Challenges extends BaseEntity{
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     @Column(name = "challenge_id")
-    private int challengeId;
+    public int challengeId;
     private String name;
     private String description;
-
     @ElementCollection
     private List<String> inputs;
 

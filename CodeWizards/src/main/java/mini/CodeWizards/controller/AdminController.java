@@ -3,18 +3,29 @@ package mini.CodeWizards.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import mini.CodeWizards.model.*;
-import mini.CodeWizards.repository.ChallengesRepository;
-import mini.CodeWizards.repository.CoursesRepository;
-import mini.CodeWizards.repository.PersonRepository;
-import mini.CodeWizards.repository.WizardsClassRepository;
+import mini.CodeWizards.repository.*;
+import mini.CodeWizards.service.PersonService;
+import mini.CodeWizards.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import jakarta.servlet.http.HttpSession;
 
 @Slf4j
@@ -33,19 +44,12 @@ public class AdminController {
     @Autowired
     ChallengesRepository challengesRepository;
 
-    @RequestMapping("/displayClasses")
-    public ModelAndView displayClasses(Model model) {
-        List<WizardsClass> wizardsClasses= wizardsClassRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("classes.html");
-        modelAndView.addObject("wizardsClasses",wizardsClasses);
-        modelAndView.addObject("wizardsClass", new WizardsClass());
-        return modelAndView;
-    }
+
 
     @PostMapping("/addNewClass")
     public ModelAndView addNewClass(Model model, @ModelAttribute("wizardsClass") WizardsClass wizardsClass) {
         wizardsClassRepository.save(wizardsClass);
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/displayClasses");
+        ModelAndView modelAndView = new ModelAndView("redirect:/public/displayClasses");
         return modelAndView;
     }
 
@@ -57,23 +61,7 @@ public class AdminController {
             personRepository.save(person);
         }
         wizardsClassRepository.deleteById(id);
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/displayClasses");
-        return modelAndView;
-    }
-
-    @GetMapping("/displayStudents")
-    public ModelAndView displayStudents(Model model, @RequestParam int classId, HttpSession session,
-                                        @RequestParam(value = "error", required = false) String error) {
-        String errorMessage = null;
-        ModelAndView modelAndView = new ModelAndView("students.html");
-        Optional<WizardsClass> wizardsClass = wizardsClassRepository.findById(classId);
-        modelAndView.addObject("wizardsClass",wizardsClass.get());
-        modelAndView.addObject("person",new Person());
-        session.setAttribute("wizardsClass",wizardsClass.get());
-        if(error != null) {
-            errorMessage = "Invalid Email entered!!";
-            modelAndView.addObject("errorMessage", errorMessage);
-        }
+        ModelAndView modelAndView = new ModelAndView("redirect:/public/displayClasses");
         return modelAndView;
     }
 
@@ -83,7 +71,7 @@ public class AdminController {
         WizardsClass wizardsClass = (WizardsClass) session.getAttribute("wizardsClass");
         Person personEntity = personRepository.readByEmail(person.getEmail());
         if(personEntity==null || !(personEntity.getPersonId()>0)){
-            modelAndView.setViewName("redirect:/admin/displayStudents?classId="+wizardsClass.getClassId()
+            modelAndView.setViewName("redirect:/public/displayStudents?classId="+wizardsClass.getClassId()
                     +"&error=true");
             return modelAndView;
         }
@@ -91,7 +79,7 @@ public class AdminController {
         personRepository.save(personEntity);
         wizardsClass.getPersons().add(personEntity);
         wizardsClassRepository.save(wizardsClass);
-        modelAndView.setViewName("redirect:/admin/displayStudents?classId="+wizardsClass.getClassId());
+        modelAndView.setViewName("redirect:/public/displayStudents?classId="+wizardsClass.getClassId());
         return modelAndView;
     }
 
@@ -103,16 +91,7 @@ public class AdminController {
         wizardsClass.getPersons().remove(person.get());
         WizardsClass wizardsClassSaved = wizardsClassRepository.save(wizardsClass);
         session.setAttribute("wizardsClass",wizardsClassSaved);
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/displayStudents?classId="+wizardsClass.getClassId());
-        return modelAndView;
-    }
-
-    @GetMapping("/displayCourses")
-    public ModelAndView displayCourses(Model model) {
-        List<Courses> courses = coursesRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("courses_secure.html");
-        modelAndView.addObject("courses",courses);
-        modelAndView.addObject("course", new Courses());
+        ModelAndView modelAndView = new ModelAndView("redirect:/public/displayStudents?classId="+wizardsClass.getClassId());
         return modelAndView;
     }
 
@@ -120,23 +99,7 @@ public class AdminController {
     public ModelAndView addNewCourse(Model model, @ModelAttribute("course") Courses course) {
         ModelAndView modelAndView = new ModelAndView();
         coursesRepository.save(course);
-        modelAndView.setViewName("redirect:/admin/displayCourses");
-        return modelAndView;
-    }
-
-    @GetMapping("/viewStudents")
-    public ModelAndView viewStudents(Model model, @RequestParam int id
-            ,HttpSession session,@RequestParam(required = false) String error) {
-        String errorMessage = null;
-        ModelAndView modelAndView = new ModelAndView("course_students.html");
-        Optional<Courses> courses = coursesRepository.findById(id);
-        modelAndView.addObject("courses",courses.get());
-        modelAndView.addObject("person",new Person());
-        session.setAttribute("courses",courses.get());
-        if(error != null) {
-            errorMessage = "Invalid Email entered!!";
-            modelAndView.addObject("errorMessage", errorMessage);
-        }
+        modelAndView.setViewName("redirect:/public/displayCourses");
         return modelAndView;
     }
 
@@ -147,15 +110,19 @@ public class AdminController {
         Courses courses = (Courses) session.getAttribute("courses");
         Person personEntity = personRepository.readByEmail(person.getEmail());
         if(personEntity==null || !(personEntity.getPersonId()>0)){
-            modelAndView.setViewName("redirect:/admin/viewStudents?id="+courses.getCourseId()
+            modelAndView.setViewName("redirect:/public/viewStudents?id="+courses.getCourseId()
                     +"&error=true");
             return modelAndView;
         }
         personEntity.getCourses().add(courses);
         courses.getPersons().add(personEntity);
         personRepository.save(personEntity);
+        // Decrement the lmt field
+        courses.setLmt(courses.getLmt() - 1);
+        // Save the updated course entity
+        coursesRepository.save(courses);
         session.setAttribute("courses",courses);
-        modelAndView.setViewName("redirect:/admin/viewStudents?id="+courses.getCourseId());
+        modelAndView.setViewName("redirect:/public/viewStudents?id="+courses.getCourseId());
         return modelAndView;
     }
 
@@ -169,23 +136,55 @@ public class AdminController {
         personRepository.save(person.get());
         session.setAttribute("courses",courses);
         ModelAndView modelAndView = new
-                ModelAndView("redirect:/admin/viewStudents?id="+courses.getCourseId());
+                ModelAndView("redirect:/public/viewStudents?id="+courses.getCourseId());
         return modelAndView;
     }
 
-    @GetMapping("/displayChallenges")
-    public ModelAndView displayChallenges(Model model) {
-        List<Challenges> challenges = challengesRepository.findAll();
-        ModelAndView modelAndView = new ModelAndView("challenges.html");
-        modelAndView.addObject("challenges",challenges);
-        modelAndView.addObject("challenge", new Challenges());
-        return modelAndView;
-    }
+
     @PostMapping("/addNewChallenge")
     public ModelAndView addNewChallenge(Model model, @ModelAttribute("challenge") Challenges challenge) {
         ModelAndView modelAndView = new ModelAndView();
         challengesRepository.save(challenge);
-        modelAndView.setViewName("redirect:/admin/displayChallenges");
+        modelAndView.setViewName("redirect:/public/displayChallenges");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/editChallenge", method= {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView editChallenge(@RequestParam int challenge_id, @ModelAttribute("challenge") Challenges challenge) {
+        // Retrieve the original challenge from the database based on the updatedChallenge's ID
+        Optional<Challenges> optionalChallenge = challengesRepository.findById(challenge_id);
+        if (optionalChallenge.isPresent()) {
+            Challenges originalChallenge = optionalChallenge.get();
+            // Update the original challenge with the updated values
+            originalChallenge.setName(challenge.getName());
+            originalChallenge.setDescription(challenge.getDescription());
+            originalChallenge.setInputs(challenge.getInputs());
+            originalChallenge.setExpectedOutputs(challenge.getExpectedOutputs());
+            // Save the updated challenge
+            challengesRepository.save(originalChallenge);
+            // Redirect to the displayChallenges endpoint to show the updated list of challenges
+            ModelAndView modelAndView = new ModelAndView("redirect:/public/displayChallenges");
+            return modelAndView;
+        }
+        // If the challenge with the given ID doesn't exist, handle the error accordingly
+        ModelAndView errorModelAndView = new ModelAndView("error.html");
+        errorModelAndView.addObject("message", "Challenge not found");
+        return errorModelAndView;
+    }
+
+    @GetMapping("/deleteChallenge")
+    public ModelAndView deleteChallenge(Model model, @RequestParam int challenge_id) {
+        Optional<Challenges> optionalChallenge = challengesRepository.findById(challenge_id);
+        if (optionalChallenge.isPresent()) {
+            Challenges challenge = optionalChallenge.get();
+            challengesRepository.delete(challenge);
+            ModelAndView modelAndView = new ModelAndView("redirect:/public/displayChallenges");
+            return modelAndView;
+        }
+        // If the challenge with the given ID doesn't exist, handle the error accordingly
+        ModelAndView errorModelAndView = new ModelAndView("error.html");
+        errorModelAndView.addObject("message", "Challenge not found");
+        return errorModelAndView;
+    }
+
 }

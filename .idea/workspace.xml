@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6fc835b5-4842-4b46-a86b-4f1a28dd9178" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/service/SubmissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/attempt_challenge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Challenges.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Challenges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Courses.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Courses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Submission.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/model/Submission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/repository/ChallengesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/java/mini/CodeWizards/repository/ChallengesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/resources/static/assets/css/style-starter.css" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/static/assets/css/style-starter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/T&amp;C.html" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/T&amp;C.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/challenges.html" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/challenges.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/CodeWizards/src/main/resources/templates/privacy.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2SBgI5J00cMQsHr43z05kvrm3Tq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/RGUForces/CodeWizards"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6fc835b5-4842-4b46-a86b-4f1a28dd9178" name="Changes" comment="" />
+      <created>1688625305686</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688625305686</updated>
+    </task>
+    <servers />
+  </component>
+</project>

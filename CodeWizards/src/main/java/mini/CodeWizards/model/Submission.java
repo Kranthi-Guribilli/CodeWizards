@@ -14,6 +14,7 @@ public class Submission extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "submission_id")
     private int submissionId;
 
     @ManyToOne
