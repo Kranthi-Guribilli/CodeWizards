@@ -1,4 +1,4 @@
-# RGUForces
+CodeWizards
 A college-level code testing environment
 ## Roles
 The application will have different roles for different users. They are as follows:
